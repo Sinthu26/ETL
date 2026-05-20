@@ -9,7 +9,7 @@ def load_data(df, conn):
     * Loops through the DataFrame rows with df.iterrows()
     * Uses INSERT or IGNORE to insert each row into the postings table
     * Commits after the loop
-    * Returns the number of rows instead
+    * Returns the number of rows inserted
     """
     # Checks if the DataFrame is empty to prevent the pipeline from crashing
     if df is None or df.empty:

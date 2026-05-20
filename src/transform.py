@@ -27,10 +27,10 @@ def clean_data(df):
     
     # Checks if df is None or empty at the very start since cleaning it would produce meaningless results
     if df is None or df.empty:
-        log.error("Recieved empty or None DataFrame - nothing to clean")
+        log.error("Received empty or None DataFrame - nothing to clean")
         return None 
     
-    # Checks that all requried columns exist before filtering - guards it by checking that the expected columns exist
+    # Checks that all required columns exist before filtering - guards it by checking that the expected columns exist
     missing = [col for col in REQUIRED_COLUMNS if col not in df.columns]
     if missing:
         log.error(f"Raw data is missing expected columns: {missing}")
@@ -54,7 +54,7 @@ def clean_data(df):
         "Job Title" : "job_title",
         "City" : "city",
         "Province/Territory" : "province",
-        "Salary Maximum" : "salary_maximum",
+        "Salary Maximum" : "salary_maximum"
     })
     
 
