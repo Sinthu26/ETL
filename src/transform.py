@@ -1,5 +1,4 @@
 import logging
-import pandas as pd
 
 log = logging.getLogger(__name__)
 
@@ -57,7 +56,6 @@ def clean_data(df):
         "Province/Territory" : "province",
         "Salary Maximum" : "salary_maximum"
     })
-    
     
     return df
     
