@@ -38,7 +38,10 @@ def get_connection():
                 city            TEXT,
                 province        TEXT,
                 salary_maximum  REAL,
-                has_salary      INTEGER
+                has_salary      INTEGER,
+                date_first_seen TEXT,
+                date_last_seen  TEXT,
+                expired_fast    INTEGER DEFAULT 0
             )
         """)
         conn.commit()

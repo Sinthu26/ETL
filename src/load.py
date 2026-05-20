@@ -22,7 +22,7 @@ def load_data(df, conn):
     try:
         for _, row in df.iterrows():
             cursor.execute("""
-                INSERT OR IGNORE INTO postings (posting_id, job_title, city, province, salary_maximum, has_salary) 
+                INSERT OR IGNORE INTO postings (posting_id, job_title, city, province, salary_maximum, has_salary, date_first_seen, date_last_seen) 
                 VALUES (?, ?, ?, ?, ?, ?)
             """, (row["posting_id"], row["job_title"], row["city"], row["province"], row["salary_maximum"], row["has_salary"]))
             if cursor.rowcount == 1:
