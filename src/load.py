@@ -1,4 +1,5 @@
 import logging
+from datetime import date
 
 log = logging.getLogger(__name__)
 
@@ -15,6 +16,8 @@ def load_data(df, conn):
         log.error("Received empty or None DataFrame - nothing to load")
         return 0
     
+    today = str(date.today())
+    
     cursor = conn.cursor()
     
     new_rows = 0
@@ -23,10 +26,15 @@ def load_data(df, conn):
         for _, row in df.iterrows():
             cursor.execute("""
                 INSERT OR IGNORE INTO postings (posting_id, job_title, city, province, salary_maximum, has_salary, date_first_seen, date_last_seen) 
-                VALUES (?, ?, ?, ?, ?, ?)
-            """, (row["posting_id"], row["job_title"], row["city"], row["province"], row["salary_maximum"], row["has_salary"]))
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+            """, (row["posting_id"], row["job_title"], row["city"], row["province"], row["salary_maximum"], row["has_salary"], today, today))
             if cursor.rowcount == 1:
                 new_rows += 1
+            cursor.execute("""
+                UPDATE postings
+                SET date_last_seen = ?
+                WHERE posting_id = ?
+            """, (today, row["posting_id"]))
         conn.commit()
     except Exception as e:
         log.error(f"Failed to insert rows: {e}")
