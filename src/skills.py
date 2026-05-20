@@ -1,11 +1,11 @@
 import re
 
 SKILL_TAXONOMY = {
-    "languages": ["python", "sql", "java", "javascript", "c++"],
-    "data_tools": ["pandas", "numpy", "spark", "airflow"],
-    "databases": ["postgresql", "mysql", "sqlite", "mongodb"],
-    "cloud": ["azure", "aws", "docker", "kubernetes"],
-    "bi_tools": ["tableau", "power bi", "excel", "looker"],
+    "data_roles": ["data analyst", "data engineer", "data scientist", "business analyst", "analytics"],
+    "software_roles": ["software developer", "software engineer", "developer", "programmer", "full stack"],
+    "infrastructure": ["devops", "cloud engineer", "systems administrator", "network engineer", "site reliability"],
+    "management": ["project manager", "product manager", "scrum master", "team lead", "it manager"],
+    "support": ["technical support", "help desk", "it support", "systems analyst", "qa analyst"],
 }
 
 ALL_SKILLS = [skill for skills in SKILL_TAXONOMY.values() for skill in skills]

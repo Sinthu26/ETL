@@ -54,8 +54,9 @@ def clean_data(df):
         "Job Title" : "job_title",
         "City" : "city",
         "Province/Territory" : "province",
-        "Salary Maximum" : "salary_maximum"
+        "Salary Maximum" : "salary_maximum",
     })
     
+
     return df
     
