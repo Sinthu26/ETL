@@ -15,6 +15,7 @@ def fetch_data():
     * Returns the DataFrame
     """
     
+    # Skip download if file exists - avoids re-fetching data on every run
     if not os.path.exists(DATAPATH):
         try:
             response = requests.get(URL, timeout=30)
