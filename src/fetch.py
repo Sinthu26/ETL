@@ -14,6 +14,8 @@ def fetch_data():
     * Loads it into a DataFrame with the correct delimiter and encoding
     * Returns the DataFrame
     """
+    # Ensure data/ folder exists — GitHub Actions starts with no local folders
+    os.makedirs("data", exist_ok=True)
     
     # Skip download if file exists - avoids re-fetching data on every run
     if not os.path.exists(DATAPATH):
